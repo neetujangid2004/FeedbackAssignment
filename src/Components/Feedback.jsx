@@ -41,6 +41,7 @@ const Feedback = () => {
     };
 
     const handleDelete = (index) => {
+        // console.log(index);
         const updatedRatings = [];
         for (let i = 0; i < ratings.length; i++) {
             if (i !== index) {
@@ -52,6 +53,7 @@ const Feedback = () => {
     
 
     const handleEdit = (index) => {
+        // console.log(index);
         setEditing(index);
         setSelectedRating(ratings[index].rating);
         setMessage(ratings[index].message);
@@ -63,7 +65,8 @@ const Feedback = () => {
     }
     
     const averageRating = ratings.length ? (totalRating / ratings.length).toFixed(1) : 0;
-    
+    // console.log(averageRating);
+    // console.log(ratings);
 
     return (
         <div
