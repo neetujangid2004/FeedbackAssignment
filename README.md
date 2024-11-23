@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 Project overview :-
 
--  step 1: 
+-  step 1:
         ratings array of rating objects   -   store id, rating, message
         selectedRating                    -   store rating
         message                           -   store message
@@ -33,8 +33,8 @@ Project overview :-
 
 start 
 
-step 1: npm create vite@latest
-step 2: npm i
-step 3: npm run dev
+- step 1: npm create vite@latest
+- step 2: npm i
+- step 3: npm run dev
 
 end
