@@ -72,7 +72,7 @@ const Feedback = () => {
         <div
             style={{
                 color: 'blue',
-                background: 'orange',
+                background: 'rgb(20, 21, 80)',
                 padding: '20px',
                 fontFamily: 'Arial',
                 display: 'flex',
@@ -81,46 +81,92 @@ const Feedback = () => {
         >
             
             <div style={{ flex: 3 }}>
-                
-                <div>
-                    {[...Array(10)].map((_, i) => (
-                        <button
-                            key={i + 1}
-                            onClick={() => setSelectedRating(i + 1)}
+
+                <div
+                    style={{
+                        padding: '15px',
+                        background: '#f7f5f5',
+                        borderRadius: '10px',
+                    }}
+                >
+                    <p
+                        style={{
+                            color: '#3d3c3c',
+                            textAlign: 'center',
+                            fontWeight: '600',
+                            fontSize: '20px',
+                        }}
+                    >How would you rate your service with us?</p>
+
+                    <div
+                        style={{
+                            textAlign: 'center',
+                        }}
+                    >
+                        {[...Array(10)].map((_, i) => (
+                            <button
+                                key={i + 1}
+                                onClick={() => setSelectedRating(i + 1)}
+                                style={{
+                                    background: selectedRating === i + 1 ? 'deeppink' : '#f0eded',
+                                    color: selectedRating === i + 1 ? 'white' : 'black',
+                                    // border: '.2px solid blue',
+                                    border: 'none',
+                                    borderRadius: '50%',
+                                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                    width: '40px',
+                                    height: '40px',
+                                    margin: '7px',
+                                    fontWeight: '600',
+                                }}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div
+                        style={{
+                            padding: '0px', 
+                            margin: '15px 120px', 
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: '#fff', 
+                            border: '1.5px solid lightgray',
+                            borderRadius: '8px',
+                            maxWidth: '700px', 
+                            width: '100%',
+                        }}
+                    >
+                        <input
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Write a review"
                             style={{
-                                background: selectedRating === i + 1 ? 'gray' : 'transparent',
-                                border: '1px solid blue',
-                                borderRadius: '50%',
-                                width: '40px',
-                                height: '40px',
-                                margin: '5px',
-                                color: 'white',
+                                width: '100%',
+                                // margin: '10px 0',
+                                padding: '15px',
+                                // background: '#f0eded',
+                                color: 'black',
+                                border: 'none',
+                                outline: 'none',
+                            }}
+                        ></input>
+                        <button
+                            onClick={handleSubmit}
+                            style={{ 
+                                padding: '10px 20px', 
+                                marginRight: '5px',
+                                background: '#f0eded', 
+                                color: 'black', 
+                                border: 'none',
+                                borderRadius: '5px',
                             }}
                         >
-                            {i + 1}
+                            {editing !== null ? 'Update' : 'Send'}
                         </button>
-                    ))}
-                </div>
-
-                <div>
-                    <textarea
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Write the message"
-                        style={{
-                            width: '100%',
-                            margin: '10px 0',
-                            padding: '10px',
-                            background: 'orange',
-                            color: 'white',
-                        }}
-                    ></textarea>
-                    <button
-                        onClick={handleSubmit}
-                        style={{ padding: '10px', background: 'gray', color: 'white' }}
-                    >
-                        {editing !== null ? 'Update' : 'Submit'}
-                    </button>
+                    </div>
                 </div>
 
                 <div>
@@ -128,9 +174,12 @@ const Feedback = () => {
                         <div
                             key={index}
                             style={{
-                                border: '1px solid white',
+                                // border: '1px solid white',
+                                background: '#f7f5f5',
+                                borderRadius: '8px',
                                 padding: '10px',
                                 margin: '10px 0',
+                                textAlign: 'center',
                             }}
                         >
                             <p>Rating: {item.rating}</p>
@@ -155,7 +204,9 @@ const Feedback = () => {
             <div
                 style={{
                     flex: 1,
-                    border: '1px solid blue',
+                    // border: '1px solid blue',
+                    background: '#f7f5f5',
+                    borderRadius: '5px',
                     padding: '20px',
                     marginLeft: '10px',
                     textAlign: 'center',
